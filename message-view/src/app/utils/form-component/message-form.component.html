@@ -1,0 +1,18 @@
+<div>
+  <form (ngSubmit)="submit()" [formGroup]="messageForm">
+    <div class="title-input">
+      <mat-form-field>
+        <input matInput  placeholder="Title" formControlName="title" name="title">
+      </mat-form-field>
+    </div>
+  
+    <div class="message-field">
+      <mat-form-field>
+        <textarea matInput placeholder="Message" formControlName="message" name="message"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="submit-field">
+      <button mat-raised-button color="primary">Submith</button>
+    </div>
+  </form>
+</div>

@@ -6,7 +6,8 @@ import {
   MatOptionModule,
   MatSelectModule,
   MatButtonModule,
-  MatToolbarModule } from '@angular/material';
+  MatToolbarModule,
+  MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import {
     MatOptionModule,
     MatSelectModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
     
   ],
   exports: [
@@ -26,7 +28,8 @@ import {
     MatOptionModule,
     MatSelectModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ]
 })
 export class AppMaterialModule { }

@@ -4,23 +4,23 @@ const Messages = require('../Schema/schema');
 const routesDataHandler = require('../middlewares/routes-middleware');
 
 router.get('/messages', (req, res, next) => {
-  Messages.find({}, 'title messages', (err, data) => {
+  Messages.find({}, 'title message', (err, data) => {
     routesDataHandler(err, res, data, 200)
   });
 });
 
 router.post('/messages', (req, res, next) => {
-  const message = new Messages({
+  const messages = new Messages({
     title: req.body.title,
     message: req.body.message
   });
-  message.save((err, data) => {
+  messages.save((err, data) => {
     routesDataHandler(err, res, data, 200, 422)
   });
 });
 
 router.put('/messages/:id', (req, res, next) => {
-  Messages.findById({_id: req.params.id}, 'title messages', (err, data) => {
+  Messages.findById({_id: req.params.id}, 'title message', (err, data) => {
     if (err) {
       res.send(err.message).status(err.status);
     } else {

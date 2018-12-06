@@ -13,7 +13,6 @@ import { RoutingModule } from '../app/pages/routing/routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
     RoutingModule
