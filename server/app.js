@@ -1,13 +1,14 @@
 const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const indexRouter = require('./routes/crudRoutes');
+const indexRouter = require('./routes/crud-routes');
+const session = require('express-session');
 
 const app = express();
-mongoose.connect('mongodb://localhost/message')
+mongoose.connect('mongodb://localhost/message');
+mongoose.connect('mongodb://localhost/users');
 mongoose.Promise = global.Promise;
 
 /**

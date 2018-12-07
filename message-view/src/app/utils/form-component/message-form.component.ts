@@ -16,6 +16,7 @@ export class MessageFormComponent implements OnInit, OnDestroy {
   private update: Subscription;
   @Input() messageData: any;
   @ViewChild('f') myForm;
+  
   constructor(private restService: RestService) {
    }
   

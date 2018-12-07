@@ -1,0 +1,22 @@
+<mat-card>
+  <div>
+    <form (ngSubmit)="submit()" [formGroup]="userForm"  #f="ngForm">
+      <div class="email-input">
+        <mat-form-field>
+          <input matInput  placeholder="Enter your email" formControlName="email" name="email">
+          <mat-error *ngIf="userForm.controls['email'].hasError('required')">Field is required</mat-error>
+        </mat-form-field>
+      </div>
+    
+      <div class="password-field">
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password" name="password" type="password">
+          <mat-error *ngIf="userForm.controls['password'].invalid">Field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="submit-field">
+        <button mat-raised-button color="primary">{{buttonTitle}}</button>
+      </div>
+    </form>
+  </div>
+</mat-card>

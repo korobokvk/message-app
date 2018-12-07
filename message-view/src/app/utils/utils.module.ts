@@ -6,11 +6,12 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { MessageCardComponent } from './message-card/message-card.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 import { RestService } from './services/rest.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './users/users.component'
 
 
 @NgModule({
-  declarations: [MessageFormComponent, MessageCardComponent, MessageModalComponent],
+  declarations: [MessageFormComponent, MessageCardComponent, MessageModalComponent, UsersComponent],
   entryComponents: [MessageModalComponent],
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http'
     MessageFormComponent,
     MessageCardComponent,
     MessageModalComponent,
+    UsersComponent,
     HttpClientModule,
     AppMaterialModule
   ]

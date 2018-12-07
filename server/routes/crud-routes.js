@@ -3,6 +3,12 @@ const router = express.Router();
 const Messages = require('../Schema/schema');
 const routesDataHandler = require('../middlewares/routes-middleware');
 
+const lengthTitleError = {
+  message: {
+    message: 'Maximum title length is 15 simbols',
+    status: 422
+  }
+}
 router.get('/messages', (req, res, next) => {
   Messages.find({}, 'title message', (err, data) => {
     routesDataHandler(err, res, data, 200)
@@ -12,12 +18,7 @@ router.get('/messages', (req, res, next) => {
 router.post('/messages', (req, res, next) => {
   if (req.body.title) {
     if(req.body.title.length >= 15) {
-      routesDataHandler(err = {
-        message: {
-          message: 'Maximum title length is 15 simbols',
-          status: 422
-        }
-      }, res, null, null, 422)
+      routesDataHandler(lengthTitleError, res, null, null, 422)
     } else {
       const messages = new Messages({
         title: req.body.title,
@@ -42,12 +43,7 @@ router.put('/messages/:id', (req, res, next) => {
         }
         data.save(routesDataHandler(err, res, data, 200));
       } else {
-        routesDataHandler(err = {
-          message: {
-            message: 'Maximum title length is 15 simbols',
-            status: 422
-          }
-        }, res, null, null, 422)
+        routesDataHandler(lengthTitleError, res, null, null, 422)
       }
     }
   });
