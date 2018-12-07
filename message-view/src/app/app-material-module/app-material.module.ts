@@ -8,6 +8,8 @@ import {
   MatButtonModule,
   MatToolbarModule,
   MatCardModule } from '@angular/material';
+import { MatDialogModule, MatDialog,
+	MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -19,7 +21,8 @@ import {
     MatSelectModule,
     MatButtonModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
     
   ],
   exports: [
@@ -29,7 +32,8 @@ import {
     MatSelectModule,
     MatButtonModule,
     MatToolbarModule,
-    MatCardModule
-  ]
+    MatCardModule,
+    MatDialogModule
+  ],
 })
 export class AppMaterialModule { }

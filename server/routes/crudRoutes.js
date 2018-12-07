@@ -32,7 +32,7 @@ router.put('/messages/:id', (req, res, next) => {
 })
 
 router.delete('/messages/:id', (req, res, next) => {
-  Messages.remove({_id: req.params.id}, (err, data) => {
+  Messages.deleteOne({_id: req.params.id}, (err, data) => {
     routesDataHandler(err, res, 'Message deleted successfully', 200)
   });
 });

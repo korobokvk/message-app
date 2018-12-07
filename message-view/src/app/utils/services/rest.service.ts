@@ -11,12 +11,13 @@ import * as _ from 'lodash';
 })
 export class RestService {
   baseUrl: string = 'http://localhost:3000';
-
+  editSubject: Subject<any>;
 
   secondInterval: Observable<Number>;
   constructor(
     private http: HttpClient) {
       this.secondInterval = interval(15000);
+      this.editSubject = new Subject;
      }
 
   getMessages() {
@@ -35,7 +36,7 @@ export class RestService {
     return this.http.put(`${this.baseUrl}/messages/${id}`, message)
   }
 
-  deleteMessage(id) {
-    return this.http.delete(`${this.baseUrl}/messages/${id}`)
+  deleteMessage(message) {
+    return this.http.delete(`${this.baseUrl}/messages/${message._id}`)
   }
 }

@@ -1,3 +1,11 @@
-<p>
-  message-modal works!
-</p>
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <app-message-form 
+  #message
+  [messageData]="data">
+</app-message-form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="discardChanges()">Discard</button>
+  <button mat-button [mat-dialog-close]="message.messageForm" cdkFocusInitial (click)="message.edit(message.messageForm)">Save</button>
+</div>

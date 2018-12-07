@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [MessageFormComponent, MessageCardComponent, MessageModalComponent],
+  entryComponents: [MessageModalComponent],
   imports: [
     CommonModule,
     AppMaterialModule,
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http'
   ],
   providers: [
     RestService
-  ],
+    ],
   exports: [
     MessageFormComponent,
     MessageCardComponent,
