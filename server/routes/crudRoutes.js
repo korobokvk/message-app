@@ -10,13 +10,24 @@ router.get('/messages', (req, res, next) => {
 });
 
 router.post('/messages', (req, res, next) => {
-  const messages = new Messages({
-    title: req.body.title,
-    message: req.body.message
-  });
-  messages.save((err, data) => {
-    routesDataHandler(err, res, data, 200, 422)
-  });
+  if (req.body.title) {
+    if(req.body.title.length >= 15) {
+      routesDataHandler(err = {
+        message: {
+          message: 'Maximum title length is 15 simbols',
+          status: 422
+        }
+      }, res, null, null, 422)
+    } else {
+      const messages = new Messages({
+        title: req.body.title,
+        message: req.body.message
+      });
+      messages.save((err, data) => {
+        routesDataHandler(err, res, data, 200, 422)
+      });
+    }
+  }
 });
 
 router.put('/messages/:id', (req, res, next) => {
@@ -24,10 +35,21 @@ router.put('/messages/:id', (req, res, next) => {
     if (err) {
       res.send(err.message).status(err.status);
     } else {
-      if (req.body.title) data.title = req.body.title;
-      if (req.body.message) data.message = req.body.message;
+      if (req.body.title && !req.body.title.length >= 15) {
+        data.title = req.body.title;
+        if (req.body.message) {
+          data.message = req.body.message;
+        }
+        data.save(routesDataHandler(err, res, data, 200));
+      } else {
+        routesDataHandler(err = {
+          message: {
+            message: 'Maximum title length is 15 simbols',
+            status: 422
+          }
+        }, res, null, null, 422)
+      }
     }
-    data.save(routesDataHandler(err, res, data, 200));
   });
 })
 

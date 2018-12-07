@@ -1,6 +1,10 @@
 const routesDataHandler = (err, res, data, successStatus, errorStatus) => {
-    if (err) res.send(err.message).status(errorStatus || err.status);
-    res.send({messages: data, status: 200}).status(successStatus);
+    if (err) {
+        res.status(errorStatus || err.status).send(err.message);
+    } else {
+        res.status(successStatus).send({messages: data, status: 200});
+    } 
+    
 };
 
 module.exports = routesDataHandler;

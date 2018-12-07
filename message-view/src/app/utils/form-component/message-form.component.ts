@@ -38,7 +38,6 @@ export class MessageFormComponent implements OnInit, OnDestroy {
     });
   }
   submit() {
-    console.log(this.messageForm.controls['title'])
     if(this.messageForm.valid) {
       this.create = this.restService.createMessage(_.get(this.messageForm, 'value')).subscribe(responce => {
         if(_.get(responce, 'status', void 0) === 200) {
