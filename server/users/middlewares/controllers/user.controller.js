@@ -6,7 +6,7 @@ function authenticate(req, res) {
     userService.authenticate(req.body.username, req.body.password)
         .then((user) => {
             if(user) {
-                res.send(wser);
+                res.send(user);
             } else {
                 res.status(400).send('Username or password is incorrect');
             }

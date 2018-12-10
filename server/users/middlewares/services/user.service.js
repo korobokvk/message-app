@@ -8,7 +8,6 @@ const Users = require('../../Schema/users.schema');
 
 function authenticate(username, password) {
     const deferred = Q.defer();
-
     Users.findOne({username: username}, (err, user) => {
         if (err) deferred.reject(`${err.name}: ${err.message}`);
 
