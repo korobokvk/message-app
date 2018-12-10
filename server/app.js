@@ -3,12 +3,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const messages = require('./messages/routes/crud-routes');
-const session = require('express-session');
+const messages = require('./messages/routes/messages.routes');
+const config = require('./config.json');
 
 const app = express();
-mongoose.connect('mongodb://localhost/message');
-mongoose.connect('mongodb://localhost/users');
+mongoose.connect(`${config.connectionString}message`);
 mongoose.Promise = global.Promise;
 
 /**

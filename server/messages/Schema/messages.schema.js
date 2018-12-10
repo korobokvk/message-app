@@ -8,7 +8,7 @@ const PostMessage = new Schema({
     message: {
         type: String
     }
-});
+}, { collection: 'messages'});
 
 const PostModel = mongoose.model('messages', PostMessage);
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Messages = require('../Schema/schema');
+const Messages = require('../Schema/messages.schema');
 const routesDataHandler = require('../middlewares/routes-middleware');
 
 const lengthTitleError = {
