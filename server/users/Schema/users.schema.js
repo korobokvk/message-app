@@ -5,7 +5,7 @@ const Users = new Schema({
     username: {
         type: String
     },
-    password: {
+    hash: {
         type: String
     }
 }, { collection: 'users'});

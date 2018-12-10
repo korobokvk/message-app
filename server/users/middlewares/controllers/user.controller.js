@@ -1,5 +1,5 @@
-const config = require('../../../consfig.json');
-const express = require('express');
+// const config = require('../../../consfig.json');
+// const express = require('express');
 const userService = require('../services/user.service');
 
 function authenticate(req, res) {
@@ -38,7 +38,7 @@ function getAllUser(req, res) {
 };
 
 function getCurrentUser(req, res) {
-    userService.getCurrentUser(req.user.id)
+    userService.getCurrentUser(req.user.sub)
         .then((user) => {
             if(user) {
                 res.send(user);
@@ -70,3 +70,14 @@ function remove(req, res) {
         res.status(400).send(err);
     });
 };
+
+const controls = {
+    authenticate,
+    register,
+    update,
+    remove,
+    getAllUser,
+    getCurrentUser
+};
+
+module.exports = controls;

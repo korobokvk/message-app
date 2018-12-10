@@ -4,6 +4,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const messages = require('./messages/routes/messages.routes');
+const users = require('./users/routes/auth-routes');
 const config = require('./config.json');
 
 const app = express();
@@ -24,6 +25,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+/**
+ * Define routes
+ */
 app.use(messages);
+app.use(users)
 
 module.exports = app;
