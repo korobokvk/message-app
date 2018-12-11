@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MessageFormComponent } from './form-component/message-form.component';
-import { AppMaterialModule } from '../app-material-module/app-material.module'
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppMaterialModule } from '../app-material-module/app-material.module'
+
+import { MessageFormComponent } from './form-component/message-form.component';
 import { MessageCardComponent } from './message-card/message-card.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
+import { UsersComponent } from './users/users.component';
+import { AlertComponent } from './alert/alert.component';
+
 import { RestService } from './services/rest.service';
-import { HttpClientModule } from '@angular/common/http';
-import { UsersComponent } from './users/users.component'
+
+import { ErorrInterception } from './services/erorr.interceptor';
+import { JwtInterceptor } from './services/jwt.interceptor';
+
 
 
 @NgModule({
-  declarations: [MessageFormComponent, MessageCardComponent, MessageModalComponent, UsersComponent],
+  declarations: [MessageFormComponent, MessageCardComponent, MessageModalComponent, UsersComponent, AlertComponent],
   entryComponents: [MessageModalComponent],
   imports: [
     CommonModule,
@@ -21,7 +29,9 @@ import { UsersComponent } from './users/users.component'
     HttpClientModule
   ],
   providers: [
-    RestService
+    RestService,
+    ErorrInterception,
+    JwtInterceptor
     ],
   exports: [
     MessageFormComponent,

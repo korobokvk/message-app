@@ -1,16 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { MessageModalComponent } from '../message-modal/message-modal.component';
+import { IMessage } from '../models/models';
 import { MatDialog } from '@angular/material/dialog';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
 
 
-interface Message { 
-  _id: string,
-  title: string,
-  message: string
-};
+
 
 @Component({
   selector: 'app-message-card',
@@ -18,14 +15,14 @@ interface Message {
   styleUrls: ['./message-card.component.less']
 })
 export class MessageCardComponent implements OnInit, OnDestroy {
-  public messages: Array<Message>;
+  public messages: Array<IMessage>;
   private interval: Subscription;
   private delete: Subscription;
   constructor(private restService: RestService, public dialog: MatDialog) {
 
   }
 
-  openDialog(content: Message) {
+  openDialog(content: IMessage) {
     const dialogRef = this.dialog.open(MessageModalComponent, {
       width: '400px',
       data: content

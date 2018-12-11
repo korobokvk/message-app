@@ -1,5 +1,3 @@
-// const config = require('../../../consfig.json');
-// const express = require('express');
 const userService = require('../services/user.service');
 
 function authenticate(req, res) {
