@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import { Subscription } from 'rxjs';
-import { AlertService } from '../services/AlertService';
+import { AlertService } from '../services/alert.service';
 
 
 @Component({
