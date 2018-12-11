@@ -45,10 +45,8 @@ export class UsersComponent implements OnInit {
   };
 
   login() {
-    console.log(this.userForm)
     this.loading = true;
     this.authService.login(this.userForm.value.username, this.userForm.value.password).subscribe(data => {
-      console.log(this.returnUrl)
       this.router.navigate([this.returnUrl]);
     }, error => {
       this.alertService.error(error);

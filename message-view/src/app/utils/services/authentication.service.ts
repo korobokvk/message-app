@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthenticationService {
   baseUrl: string = 'http://localhost:3000';
+  public subject: Subject<any> = new Subject<any>();
 
   constructor(private http: HttpClient) { }
 
@@ -17,13 +18,14 @@ export class AuthenticationService {
         if(user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
-
+        this.subject.next(user)
         return user;
       })
     );
   }
 
   logout() {
+    this.subject.next(null)
     localStorage.removeItem('currentUser');
   }
 }

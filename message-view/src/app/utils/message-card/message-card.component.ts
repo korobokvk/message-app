@@ -29,7 +29,6 @@ export class MessageCardComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     })
   };
 

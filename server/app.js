@@ -30,7 +30,7 @@ app.use(cookieParser());
 /**
  * Routes secure
  */
-app.use(expressJwt({
+app.use('/', expressJwt({
   secret: config.secret,
   getToken: function (req) {
       if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
@@ -41,6 +41,7 @@ app.use(expressJwt({
       return null;
   }
 }).unless({ path: ['/users/authentificate', '/users/register'] }));
+
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
       return res.status(403).send({

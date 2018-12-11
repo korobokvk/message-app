@@ -68,7 +68,6 @@ function create(userParams) {
         }
     });
     function createUser() {
-        console.log(_.omit(userParams, 'password'))
         const user = new Users(
             _.omit(userParams, 'password')
         );

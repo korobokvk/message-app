@@ -19,20 +19,17 @@ export class AlertComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
-   this.getAlerts();
-  }
-  public getAlerts() {
-    this.subscription = this.alertService.subject.subscribe(message => {
-      console.log(message)
+    this.subscription = this.alertService.getMessage().subscribe(message => {
       if (message) {
-        this.snackBar.open(message, 'Close', {
+        this.snackBar.open(message.text, 'Close', {
           duration: 4000
         });
       }
-    })
+    })  
   }
+
   ngOnDestroy() {
-    //this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

@@ -11,9 +11,6 @@ import { MessageModalComponent } from './message-modal/message-modal.component';
 import { UsersComponent } from './users/users.component';
 import { AlertComponent } from './alert/alert.component';
 
-import { RestService } from './services/rest.service';
-import { AlertService } from './services/alert.service';
-
 import { ErorrInterception, ErrorInterceptorProvider } from './services/erorr.interceptor';
 import { JwtInterceptor, JwtInterceptorProvider } from './services/jwt.interceptor';
 
@@ -31,8 +28,6 @@ import { JwtInterceptor, JwtInterceptorProvider } from './services/jwt.intercept
     ],
   providers: [
     HttpClientModule,
-    RestService,
-    AlertService,
     ErrorInterceptorProvider,
     JwtInterceptorProvider
     ],
