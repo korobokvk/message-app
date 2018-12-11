@@ -1,13 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Hi User</span>
+    <span *ngIf="currentUser">Hi {{currentUser.username}}</span>
     <!-- <span class=spacer></span> -->
-    <a routerLink="/main"><button mat-button>Create Message</button></a>
-    <a routerLink="/messages"><button mat-button>View Messages</button></a> 
-     <a routerLink="/login"><button mat-stroked-button>Sign Up</button></a>
-    <a routerLink="/register"><button mat-button>Sign In</button></a> 
+    <a *ngIf="currentUser" routerLink="/main"><button mat-button>Create Message</button></a>
+    <a *ngIf="currentUser" routerLink="/messages"><button mat-button>View Messages</button></a> 
+    <a *ngIf="!currentUser" routerLink="/register"><button mat-stroked-button>Sign Up</button></a>
+    <a *ngIf="!currentUser" routerLink="/login"><button mat-button>Sign In</button></a> 
     <span class=spacer></span>
-    <a class="user_button" routerLink="/login"><button mat-button>Logout</button></a> 
+    <a *ngIf="currentUser" class="user_button" routerLink="/login"><button mat-button>Logout</button></a> 
   </mat-toolbar-row>
 </mat-toolbar>
+<app-alert></app-alert>
 <router-outlet></router-outlet>

@@ -1,10 +1,10 @@
 <mat-card>
   <div>
-    <form (ngSubmit)="submit()" [formGroup]="userForm"  #f="ngForm">
+    <form (ngSubmit)="authorisationState ? register() : login()" [formGroup]="userForm"  #f="ngForm">
       <div class="email-input">
         <mat-form-field>
-          <input matInput  placeholder="Enter your email" formControlName="email" name="email">
-          <mat-error *ngIf="userForm.controls['email'].hasError('required')">Field is required</mat-error>
+          <input matInput  placeholder="Enter your email" formControlName="username" name="email">
+          <mat-error *ngIf="userForm.controls['username'].hasError('required')">Field is required</mat-error>
         </mat-form-field>
       </div>
     
@@ -19,4 +19,12 @@
       </div>
     </form>
   </div>
+
+  <mat-progress-spinner
+    class="spinner"
+    *ngIf='loading'
+    [color]="primary"
+    [mode]="'indeterminate'"
+    [value]="50">
+  </mat-progress-spinner>
 </mat-card>

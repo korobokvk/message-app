@@ -8,7 +8,8 @@ import {
   MatButtonModule,
   MatToolbarModule,
   MatCardModule,
-  MatSnackBarModule } from '@angular/material';
+  MatSnackBarModule,
+  MatProgressSpinnerModule } from '@angular/material';
 import { MatDialogModule, MatDialog,
 	MatDialogRef } from '@angular/material/dialog';
 
@@ -24,7 +25,8 @@ import { MatDialogModule, MatDialog,
     MatToolbarModule,
     MatCardModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
     
   ],
   exports: [
@@ -36,7 +38,8 @@ import { MatDialogModule, MatDialog,
     MatToolbarModule,
     MatCardModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
 })
 export class AppMaterialModule { }

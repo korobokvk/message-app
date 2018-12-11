@@ -14,8 +14,8 @@ import { AlertComponent } from './alert/alert.component';
 import { RestService } from './services/rest.service';
 import { AlertService } from './services/alert.service';
 
-import { ErorrInterception } from './services/erorr.interceptor';
-import { JwtInterceptor } from './services/jwt.interceptor';
+import { ErorrInterception, ErrorInterceptorProvider } from './services/erorr.interceptor';
+import { JwtInterceptor, JwtInterceptorProvider } from './services/jwt.interceptor';
 
 
 
@@ -28,12 +28,13 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],
+    ],
   providers: [
+    HttpClientModule,
     RestService,
-    ErorrInterception,
-    JwtInterceptor,
-    AlertService
+    AlertService,
+    ErrorInterceptorProvider,
+    JwtInterceptorProvider
     ],
   exports: [
     MessageFormComponent,
@@ -43,6 +44,6 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     HttpClientModule,
     AppMaterialModule,
     AlertComponent
-  ]
+    ]
 })
 export class UtilsModule { }
