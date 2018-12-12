@@ -5,7 +5,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const messages = require('./messages/routes/messages.routes');
-const users = require('./users/routes/auth-routes');
+const users = require('./users/routes/auth.routes');
 const config = require('./config.json');
 
 const app = express();

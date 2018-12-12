@@ -7,6 +7,9 @@ import { UserService } from '../../utils/services/user.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.less']
 })
+/**
+ * This is can do some fiture, which I can use in future, maybe. But I not sure 
+ */
 export class MainPageComponent implements OnInit {
   currentUser: IUsers;
   users: IUsers[] = new Array();

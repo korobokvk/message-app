@@ -8,6 +8,9 @@ const Users = require('../../Schema/users.schema');
 
 function authenticate(username, password) {
     const deferred = Q.defer();
+    if (!username || !password) {
+        deferred.reject(`Username and password is required`);
+    }
     Users.findOne({username: username}, (err, user) => {
         if (err) deferred.reject(`${err.name}: ${err.message}`);
 
@@ -127,7 +130,7 @@ function update(_id,  userParams) {
 function remove(_id) {
     const deferred = Q.defer();
 
-    Users.findOne({_id: _id}, (err) => {
+    Users.deleteOne({_id: _id}, (err) => {
         if (err) deferred.reject(`${err.name}: ${err.message}`);
         
         deferred.resolve();

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, mixinColor } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { AlertService } from '../services/alert.service';
 
@@ -22,7 +22,8 @@ export class AlertComponent implements OnDestroy, OnInit {
     this.subscription = this.alertService.getMessage().subscribe(message => {
       if (message) {
         this.snackBar.open(message.text, 'Close', {
-          duration: 4000
+          duration: 4000,
+          panelClass: message.type === 'error' ? ['red-snackbar'] : ['green-snack']
         });
       }
     })  

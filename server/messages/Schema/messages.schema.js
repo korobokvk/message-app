@@ -7,6 +7,9 @@ const PostMessage = new Schema({
     },
     message: {
         type: String
+    },
+    user: {
+        type: String
     }
 }, { collection: 'messages'});
 

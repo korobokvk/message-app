@@ -6,5 +6,6 @@ export interface IUsers {
 export interface IMessage { 
     _id: string,
     title: string,
-    message: string
+    message: string,
+    user: string
   };

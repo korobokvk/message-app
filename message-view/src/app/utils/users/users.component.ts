@@ -30,8 +30,8 @@ export class UsersComponent implements OnInit {
 
   initForm() {
     this.userForm = new FormGroup({
-      "username": new FormControl(null, [Validators.required, Validators.email]),
-      "password": new FormControl(null, Validators.required)
+      "username": new FormControl('', [Validators.required, Validators.email]),
+      "password": new FormControl('', Validators.required)
     });
   };
   ngOnInit() {
@@ -52,7 +52,8 @@ export class UsersComponent implements OnInit {
       this.alertService.error(error);
       this.loading = false;
     })
-  }
+  };
+
   register() {
     this.loading = true;
     this.userService.create(this.userForm.value).subscribe(data => {
@@ -63,7 +64,5 @@ export class UsersComponent implements OnInit {
                 this.alertService.error(error);
                 this.loading = false;
             });
-  }
-
-
+  };
 }

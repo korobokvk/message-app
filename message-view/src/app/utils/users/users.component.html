@@ -4,7 +4,10 @@
       <div class="email-input">
         <mat-form-field>
           <input matInput  placeholder="Enter your email" formControlName="username" name="email">
-          <mat-error *ngIf="userForm.controls['username'].hasError('required')">Field is required</mat-error>
+          <mat-error *ngIf="userForm.controls['username'].hasError('required') && userForm.controls['username'].touched">
+            Field is required</mat-error>
+          <mat-error *ngIf="userForm.controls['username'].hasError('email') && userForm.controls['username'].dirty">
+            Enter valid email</mat-error>
         </mat-form-field>
       </div>
     
@@ -15,11 +18,11 @@
         </mat-form-field>
       </div>
       <div class="submit-field">
-        <button mat-raised-button color="primary">{{buttonTitle}}</button>
+        <button mat-raised-button [disabled]="loading || !userForm.valid" color="primary">{{buttonTitle}}</button>
       </div>
     </form>
   </div>
-
+{{userForm.controls.hasError}}
   <mat-progress-spinner
     class="spinner"
     *ngIf='loading'

@@ -2,9 +2,14 @@
     <mat-card-header>
       <mat-card-title>
         <p>
-          {{message.title}}
+          {{message.title || 'Empty title'}}
         </p>
       </mat-card-title>
+      <mat-card-subtitle>
+        <p>
+          {{message.user || 'none'}}
+        </p>
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
