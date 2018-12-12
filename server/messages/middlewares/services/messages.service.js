@@ -58,10 +58,17 @@ function update(_id, messageParams) {
             message: messageParams.message,
             user: messageParams.user
         };
-        Messages.where({_id: _id}).update({$set: message}, (err, data) => {
+        Messages.findById({_id: _id}, (err, data) => {
             if (err) deferred.reject(`${err.name}: ${err.message}`);
-            
-            deferred.resolve(data);
+
+            if(messageParams) {
+                Object.assign(data, message);
+                data.save((err, message) => {
+                    if (err) deferred.reject(`${err.name}: ${err.message}`);
+                    
+                    deferred.resolve(message);
+                });
+            };
         });
     };
 

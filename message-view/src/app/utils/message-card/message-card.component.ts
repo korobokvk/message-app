@@ -40,17 +40,20 @@ export class MessageCardComponent implements OnInit, OnDestroy {
       this.getMessage();
     });
     this.restService.editSubject.subscribe(message => {
-      if(message.status === 200) {
+      if(message) {
        const index = _.findIndex(this.messages, (msg) => {
-          return msg._id === message.messages._id
+          return msg._id === message._id
         });
-        index >= 0 ? this.messages[index] = message.messages: null;
+
+        index >= 0 ? this.messages[index] = message : null;
       }
     });
   };
 
   deleteMessage(message) {
-    this.delete = this.restService.deleteMessage(message).subscribe(responce => _.get(responce, 'status') === 200 ? this.getMessage() : void 0)
+    this.delete = this.restService.deleteMessage(message).subscribe(responce => {
+      responce === 'success'? this.getMessage() : void 0
+    })
   }
 
   getMessage() {

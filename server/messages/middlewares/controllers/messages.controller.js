@@ -21,7 +21,7 @@ function create(req, res) {
 };
 
 function update(req, res) {
-    messageService.update(req.params._id. req.body)
+    messageService.update(req.params._id, req.body)
         .then((messages) => {
             res.send(messages);
         })
