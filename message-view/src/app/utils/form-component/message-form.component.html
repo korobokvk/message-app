@@ -1,14 +1,5 @@
 <div>
   <form (ngSubmit)="submit()" [formGroup]="messageForm"  #f="ngForm">
-    <div class="title-input">
-      <mat-form-field>
-        <input matInput  placeholder="Title" formControlName="title" name="title">
-        <mat-hint>Field is required</mat-hint>
-        <mat-error *ngIf="messageForm.controls['title'].hasError('required')">Field is required</mat-error>
-        <mat-error *ngIf="messageForm.controls['title'].hasError('maxlength') && messageForm.controls['title'].touched">15 simbols is the maximum title length</mat-error>
-      </mat-form-field>
-    </div>
-  
     <div class="message-field">
       <mat-form-field>
         <textarea matInput placeholder="Message" rows="5" cols="40" formControlName="message" name="message"></textarea>

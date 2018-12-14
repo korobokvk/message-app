@@ -22,19 +22,21 @@ export class MessageFormComponent implements OnInit, OnDestroy {
   
   ngOnInit() {
     if(this.messageData) {
-        this.initForm(this.messageData.title, this.messageData.message)
+      console.log(this.messageData)
+        this.initForm(this.messageData.message)
     } else {
       this.initForm();
     }
   }
-  initForm(title?: string, message?: string) {
+  initForm(message?: string) {
     this.messageForm = new FormGroup({
-      "title": new FormControl(title, [Validators.required, Validators.maxLength(15)]),
       "message": new FormControl(message, Validators.required)
     });
   };
   edit(data) {
+    console.log(data)
     this.update = this.restService.updateMessage(data.value, this.messageData._id).subscribe(responce => {
+      console.log(responce)
       this.restService.editSubject.next(responce);
     });
   }

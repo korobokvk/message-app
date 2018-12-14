@@ -9,7 +9,10 @@ import {
   MatToolbarModule,
   MatCardModule,
   MatSnackBarModule,
-  MatProgressSpinnerModule } from '@angular/material';
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatListModule,
+  MatIconModule } from '@angular/material';
 import { MatDialogModule, MatDialog,
 	MatDialogRef } from '@angular/material/dialog';
 
@@ -26,7 +29,10 @@ import { MatDialogModule, MatDialog,
     MatCardModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatListModule,
+    MatIconModule
     
   ],
   exports: [
@@ -39,7 +45,10 @@ import { MatDialogModule, MatDialog,
     MatCardModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatListModule,
+    MatIconModule
   ],
 })
 export class AppMaterialModule { }

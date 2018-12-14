@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgPipesModule } from 'ngx-pipes';
 
 import { AppMaterialModule } from '../app-material-module/app-material.module'
 
@@ -24,7 +25,8 @@ import { JwtInterceptor, JwtInterceptorProvider } from './services/jwt.intercept
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgPipesModule
     ],
   providers: [
     HttpClientModule,
@@ -38,7 +40,8 @@ import { JwtInterceptor, JwtInterceptorProvider } from './services/jwt.intercept
     UsersComponent,
     HttpClientModule,
     AppMaterialModule,
-    AlertComponent
+    AlertComponent,
+    NgPipesModule
     ]
 })
 export class UtilsModule { }

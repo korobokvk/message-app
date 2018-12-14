@@ -20,6 +20,10 @@ export class UserService {
     return this.http.get<IUsers>(`${this.baseUrl}/users/${_id}`);
   };
 
+  getCurrent() {
+    return this.http.get<IUsers>(`${this.baseUrl}/users/current`)
+  }
+
   create(user: IUsers) {
     return this.http.post(`${this.baseUrl}/users/register`, user);
   };

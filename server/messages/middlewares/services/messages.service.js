@@ -62,7 +62,7 @@ function update(_id, messageParams) {
             if (err) deferred.reject(`${err.name}: ${err.message}`);
 
             if(messageParams) {
-                Object.assign(data, message);
+                Object.assign(data, messageParams);
                 data.save((err, message) => {
                     if (err) deferred.reject(`${err.name}: ${err.message}`);
                     
